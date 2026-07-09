@@ -1,6 +1,7 @@
-import { Cormorant_Garamond, Inter, Space_Mono } from "next/font/google";
+import { Cormorant_Garamond, Inter, Space_Mono, Rye } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
+import Entrance from "@/components/Entrance";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import { site } from "@/lib/site";
@@ -13,6 +14,7 @@ const display = Cormorant_Garamond({
 });
 const sans = Inter({ subsets: ["latin"], variable: "--font-sans" });
 const mono = Space_Mono({ subsets: ["latin"], weight: ["400", "700"], variable: "--font-mono" });
+const circus = Rye({ subsets: ["latin"], weight: "400", variable: "--font-circus" });
 
 export const metadata = {
   metadataBase: new URL(site.url),
@@ -35,9 +37,10 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="it" className={`${display.variable} ${sans.variable} ${mono.variable}`}>
-      <body className="grain font-sans">
+    <html lang="it" className={`${display.variable} ${sans.variable} ${mono.variable} ${circus.variable}`}>
+      <body className="font-sans">
         <SmoothScroll>
+          <Entrance />
           <Nav />
           <main>{children}</main>
           <Footer />

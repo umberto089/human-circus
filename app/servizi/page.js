@@ -34,12 +34,12 @@ export default function Servizi() {
   return (
     <section className="px-5 md:px-10 pt-36 md:pt-44 pb-20 max-w-6xl mx-auto">
       <SectionHead kicker="Il palco è tuo" title="Servizi" />
-      <div className="divide-y divide-bone/10 border-y border-bone/10">
+      <div className="divide-y-2 divide-navy/10 border-y-2 border-navy/10">
         {services.map((s, i) => (
           <Reveal key={s.n} delay={i * 0.08}>
             <div className="group grid md:grid-cols-[80px_1fr_2fr] gap-4 md:gap-10 py-10 md:items-baseline">
-              <span className="font-mono text-xs text-gold">{s.n}</span>
-              <h3 className="font-display text-3xl md:text-4xl text-bone group-hover:text-gold transition-colors duration-300">
+              <span className="font-circus text-lg text-blood">{s.n}</span>
+              <h3 className="font-circus text-2xl md:text-3xl text-bone group-hover:text-blood transition-colors duration-300">
                 {s.title}
               </h3>
               <p className="text-smoke leading-relaxed">{s.desc}</p>
@@ -51,9 +51,9 @@ export default function Servizi() {
         <p className="text-smoke mb-8">Ogni progetto ha un prezzo suo. Parliamone.</p>
         <Link
           href="/contatti"
-          className="inline-block font-mono text-[11px] tracking-[0.3em] uppercase bg-bone text-ink px-12 py-5 hover:bg-gold transition-colors duration-300"
+          className="inline-block font-circus text-sm uppercase bg-blood text-paper px-12 py-5 hover:bg-navy transition-colors duration-300"
         >
-          Chiedi un preventivo
+          Chiedi un preventivo ★
         </Link>
       </Reveal>
     </section>

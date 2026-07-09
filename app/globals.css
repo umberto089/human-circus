@@ -2,54 +2,87 @@
 @tailwind components;
 @tailwind utilities;
 
-:root { color-scheme: dark; }
+:root { color-scheme: light; }
 
-html { background: #0a0908; }
+html { background: #f3ecdd; }
 html.lenis, html.lenis body { height: auto; }
 .lenis.lenis-smooth { scroll-behavior: auto !important; }
 
 body {
-  background: #0a0908;
-  color: #e8e2d6;
+  background: #f3ecdd;
+  color: #20265c;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
 
-::selection { background: #a3282a; color: #e8e2d6; }
+::selection { background: #c1272d; color: #f3ecdd; }
 
-::-webkit-scrollbar { width: 4px; }
-::-webkit-scrollbar-track { background: #0a0908; }
-::-webkit-scrollbar-thumb { background: #3a352e; }
-
-/* Grana cinematografica */
-.grain::before {
-  content: "";
-  position: fixed;
-  inset: -100%;
-  z-index: 60;
-  pointer-events: none;
-  opacity: 0.05;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 300 300' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  animation: grain 8s steps(10) infinite;
-}
-@keyframes grain {
-  0%, 100% { transform: translate(0, 0); }
-  10% { transform: translate(-5%, -8%); }
-  30% { transform: translate(3%, -12%); }
-  50% { transform: translate(9%, 4%); }
-  70% { transform: translate(-7%, 9%); }
-  90% { transform: translate(4%, 6%); }
-}
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: #f3ecdd; }
+::-webkit-scrollbar-thumb { background: #c9bda2; }
 
 .text-outline {
-  -webkit-text-stroke: 1px rgba(232, 226, 214, 0.35);
+  -webkit-text-stroke: 1.5px rgba(32, 38, 92, 0.55);
   color: transparent;
-}
-
-.vignette {
-  background: radial-gradient(ellipse at center, transparent 55%, rgba(10, 9, 8, 0.85) 100%);
 }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
 }
+
+/* ==== Il Circo ==== */
+
+/* Tenda: righe rosse e crema con pieghe */
+.curtain-panel {
+  background:
+    repeating-linear-gradient(90deg, rgba(0, 0, 0, 0.18) 0 22px, rgba(255, 255, 255, 0.08) 22px 44px),
+    linear-gradient(180deg, rgba(60, 10, 12, 0) 0%, rgba(60, 10, 12, 0.35) 100%),
+    repeating-linear-gradient(90deg, #b3272d 0 44px, #f0e6d2 44px 88px);
+}
+
+/* Lampadine da insegna: ben accese */
+.bulb {
+  position: absolute;
+  width: 13px;
+  height: 13px;
+  border-radius: 9999px;
+  background: radial-gradient(circle at 35% 35%, #fff3c8, #ffc23e 60%, #e79b18);
+  border: 1px solid rgba(140, 90, 10, 0.55);
+  box-shadow:
+    0 0 6px 2px rgba(255, 196, 62, 0.95),
+    0 0 22px 9px rgba(255, 170, 40, 0.5);
+  animation: bulb-blink 1.6s infinite;
+}
+@keyframes bulb-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; box-shadow: 0 0 3px 1px rgba(255, 196, 62, 0.4); }
+}
+
+/* Insegna che sfarfalla */
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  91% { opacity: 1; }
+  92% { opacity: 0.35; }
+  93% { opacity: 1; }
+  95% { opacity: 0.55; }
+  96% { opacity: 1; }
+}
+.flicker { animation: flicker 4.5s infinite; }
+
+/* La pista: anello che ruota lentissimo */
+@keyframes spin-slow { to { transform: rotate(360deg); } }
+.ring-slow { animation: spin-slow 70s linear infinite; }
+
+/* Bandierine che ondeggiano */
+@keyframes sway {
+  0%, 100% { transform: rotate(0.8deg); }
+  50% { transform: rotate(-0.8deg); }
+}
+.sway { animation: sway 6s ease-in-out infinite; transform-origin: 50% 0%; }
+
+/* Stelle che brillano */
+@keyframes twinkle {
+  0%, 100% { opacity: 0.85; transform: scale(1); }
+  50% { opacity: 0.3; transform: scale(0.85); }
+}
+.star-tw { animation: twinkle 3.2s ease-in-out infinite; display: inline-block; }

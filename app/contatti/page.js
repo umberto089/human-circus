@@ -15,11 +15,11 @@ export default function Contatti() {
       <div className="grid md:grid-cols-[1fr_1.5fr] gap-12 md:gap-20">
         <Reveal className="space-y-6">
           <p className="font-display text-2xl md:text-3xl text-bone leading-snug">
-            Niente moduli infiniti. Dimmi <em className="text-gold">chi sei</em> e{" "}
-            <em className="text-gold">cosa immagini</em>: al resto pensiamo insieme.
+            Niente moduli infiniti. Dimmi <em className="text-blood">chi sei</em> e{" "}
+            <em className="text-blood">cosa immagini</em>: al resto pensiamo insieme.
           </p>
           <div className="font-mono text-[11px] tracking-[0.2em] uppercase text-smoke space-y-2">
-            <p>Email — <a href={`mailto:${site.email}`} className="text-bone hover:text-gold transition-colors">{site.email}</a></p>
+            <p>Email — <a href={`mailto:${site.email}`} className="text-bone hover:text-blood transition-colors">{site.email}</a></p>
             <p>Base — Napoli, Italia</p>
             <p>Risposta — entro 48h</p>
           </div>
