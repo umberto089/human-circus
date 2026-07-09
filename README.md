@@ -24,3 +24,4 @@ I video vanno caricati su Cloudinary (o Vimeo/YouTube) e incorporati con l'URL.
 ## Deploy
 
 Il sito è collegato a Vercel: ogni modifica caricata su GitHub viene pubblicata automaticamente.
+
