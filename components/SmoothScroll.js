@@ -10,7 +10,7 @@ export default function SmoothScroll({ children }) {
   const lenisRef = useRef(null);
 
   useEffect(() => {
-    const lenis = new Lenis({ lerp: 0.09, wheelMultiplier: 1 });
+    const lenis = new Lenis({ lerp: 0.07, wheelMultiplier: 1 });
     lenisRef.current = lenis;
 
     lenis.on("scroll", ScrollTrigger.update);

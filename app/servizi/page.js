@@ -33,7 +33,7 @@ const services = [
 export default function Servizi() {
   return (
     <section className="px-5 md:px-10 pt-36 md:pt-44 pb-20 max-w-6xl mx-auto">
-      <SectionHead kicker="Il listino del circo" title="Servizi" />
+      <SectionHead kicker="Il palco è tuo" title="Servizi" />
       <div className="divide-y divide-bone/10 border-y border-bone/10">
         {services.map((s, i) => (
           <Reveal key={s.n} delay={i * 0.08}>

@@ -8,7 +8,7 @@ export default function Footer() {
         <div>
           <p className="font-display text-4xl md:text-5xl italic text-bone">Human Circus</p>
           <p className="font-mono text-[11px] tracking-[0.25em] uppercase text-smoke mt-3">
-            Lo spettacolo non finisce mai
+            La mostra non chiude mai
           </p>
         </div>
         <div className="flex flex-col gap-2 font-mono text-[11px] tracking-[0.2em] uppercase text-smoke">

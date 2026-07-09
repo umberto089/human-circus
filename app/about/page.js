@@ -10,7 +10,7 @@ export const metadata = {
 export default function About() {
   return (
     <section className="px-5 md:px-10 pt-36 md:pt-44 pb-20 max-w-6xl mx-auto">
-      <SectionHead kicker="Dietro il tendone" title="About" />
+      <SectionHead kicker="Dietro la maschera" title="About" />
       <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-start">
         <Reveal>
           <div className="relative aspect-[4/5] overflow-hidden">

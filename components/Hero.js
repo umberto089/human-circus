@@ -17,14 +17,14 @@ export default function Hero() {
       gsap.fromTo(
         ".hero-letter",
         { yPercent: 120, opacity: 0 },
-        { yPercent: 0, opacity: 1, duration: 1.4, stagger: 0.06, ease: "power4.out", delay: 0.4 }
+        { yPercent: 0, opacity: 1, duration: 1.8, stagger: 0.09, ease: "power4.out", delay: 0.6 }
       );
       gsap.fromTo(
         ".hero-sub",
         { opacity: 0, y: 24 },
-        { opacity: 1, y: 0, duration: 1.2, delay: 1.6, ease: "power3.out" }
+        { opacity: 1, y: 0, duration: 1.6, delay: 2.2, ease: "power3.out" }
       );
-      gsap.fromTo(".hero-img", { scale: 1.15 }, { scale: 1, duration: 2.4, ease: "power2.out" });
+      gsap.fromTo(".hero-img", { scale: 1.15 }, { scale: 1, duration: 3.4, ease: "power2.out" });
 
       // Parallasse cinematografica allo scroll
       gsap.to(".hero-img", {
@@ -81,12 +81,12 @@ export default function Hero() {
           ))}
         </h1>
         <p className="hero-sub font-display italic text-xl md:text-3xl text-bone/80 mt-8 max-w-xl mx-auto">
-          Il biglietto non serve. Siete già tutti in pista.
+          Il vero circo sono le persone.
         </p>
       </div>
 
       <div className="hero-sub absolute bottom-8 left-1/2 -translate-x-1/2 font-mono text-[10px] tracking-[0.3em] uppercase text-smoke">
-        Scorri — lo spettacolo inizia
+        Scorri — la mostra è aperta
       </div>
     </section>
   );

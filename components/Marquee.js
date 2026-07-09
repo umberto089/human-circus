@@ -6,7 +6,7 @@ export default function Marquee({ text }) {
   const ref = useRef(null);
 
   useEffect(() => {
-    const tween = gsap.to(ref.current, { xPercent: -50, ease: "none", duration: 28, repeat: -1 });
+    const tween = gsap.to(ref.current, { xPercent: -50, ease: "none", duration: 42, repeat: -1 });
     return () => tween.kill();
   }, []);
 

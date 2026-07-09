@@ -11,7 +11,7 @@ export const metadata = {
 export default function Contatti() {
   return (
     <section className="px-5 md:px-10 pt-36 md:pt-44 pb-20 max-w-6xl mx-auto">
-      <SectionHead kicker="Il botteghino" title="Contatti" />
+      <SectionHead kicker="Ultima sala" title="Contatti" />
       <div className="grid md:grid-cols-[1fr_1.5fr] gap-12 md:gap-20">
         <Reveal className="space-y-6">
           <p className="font-display text-2xl md:text-3xl text-bone leading-snug">

@@ -51,7 +51,7 @@ export default function GalleryGrid({ images }) {
               />
               <span className="absolute inset-0 bg-ink/30 opacity-100 group-hover:opacity-0 transition-opacity duration-500" />
               <span className="absolute bottom-3 left-3 font-mono text-[10px] tracking-[0.25em] uppercase text-bone opacity-0 group-hover:opacity-80 transition-opacity duration-500">
-                Atto {String(img.id).padStart(2, "0")}
+                Maschera {String(img.id).padStart(2, "0")}
               </span>
             </button>
           </Reveal>
@@ -86,7 +86,7 @@ export default function GalleryGrid({ images }) {
               />
               <div className="flex items-center justify-between mt-4 font-mono text-[11px] tracking-[0.25em] uppercase text-smoke">
                 <button onClick={() => step(-1)} className="hover:text-gold transition-colors">← Prec</button>
-                <span>Atto {String(selected.id).padStart(2, "0")} / {images.length}</span>
+                <span>Maschera {String(selected.id).padStart(2, "0")} / {images.length}</span>
                 <button onClick={() => step(1)} className="hover:text-gold transition-colors">Succ →</button>
               </div>
               <button
