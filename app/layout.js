@@ -1,29 +1,27 @@
-import { Cormorant_Garamond, Inter, Space_Mono, Rye } from "next/font/google";
+import { Cormorant_Garamond, Inter, Space_Mono } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
-import Entrance from "@/components/Entrance";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import { site } from "@/lib/site";
 
 const display = Cormorant_Garamond({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
+  weight: ["300", "400", "500"],
   style: ["normal", "italic"],
   variable: "--font-display",
 });
 const sans = Inter({ subsets: ["latin"], variable: "--font-sans" });
-const mono = Space_Mono({ subsets: ["latin"], weight: ["400", "700"], variable: "--font-mono" });
-const circus = Rye({ subsets: ["latin"], weight: "400", variable: "--font-circus" });
+const mono = Space_Mono({ subsets: ["latin"], weight: ["400"], variable: "--font-mono" });
 
 export const metadata = {
   metadataBase: new URL(site.url),
-  title: { default: `${site.name} — Fotografia e Video`, template: `%s — ${site.name}` },
+  title: { default: `${site.name}`, template: `%s — ${site.name}` },
   description: site.description,
   keywords: ["fotografo", "videomaker", "street photography", "ritratti", "Napoli", "Italia", "Human Circus"],
   authors: [{ name: site.author }],
   openGraph: {
-    title: `${site.name} — Fotografia e Video`,
+    title: site.name,
     description: site.tagline,
     url: site.url,
     siteName: site.name,
@@ -37,10 +35,9 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="it" className={`${display.variable} ${sans.variable} ${mono.variable} ${circus.variable}`}>
+    <html lang="it" className={`${display.variable} ${sans.variable} ${mono.variable}`}>
       <body className="font-sans">
         <SmoothScroll>
-          <Entrance />
           <Nav />
           <main>{children}</main>
           <Footer />

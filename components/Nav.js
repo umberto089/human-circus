@@ -1,73 +1,36 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 
 const links = [
-  { href: "/", label: "Il Circo" },
-  { href: "/portfolio", label: "Galleria" },
-  { href: "/servizi", label: "Servizi" },
+  { href: "/portfolio", label: "Archivio" },
   { href: "/about", label: "About" },
+  { href: "/servizi", label: "Servizi" },
   { href: "/contatti", label: "Contatti" },
 ];
 
 export default function Nav() {
   const pathname = usePathname();
-  const [open, setOpen] = useState(false);
-
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-paper/85 backdrop-blur-sm border-b-2 border-navy/15">
-      <div className="flex items-center justify-between px-5 md:px-10 py-4">
-        <Link href="/" className="font-circus text-sm md:text-base text-navy">
-          ★ Human Circus
+    <header className="fixed top-0 left-0 right-0 z-50 mix-blend-difference">
+      <div className="flex items-center justify-between px-5 md:px-10 py-6">
+        <Link href="/" className="font-mono text-[10px] tracking-[0.45em] uppercase text-bone/80 hover:text-bone transition-colors duration-500">
+          Human Circus
         </Link>
-
-        <nav className="hidden md:flex gap-8">
+        <nav className="flex gap-5 md:gap-8">
           {links.map((l) => (
             <Link
               key={l.href}
               href={l.href}
-              className={`font-mono text-[11px] tracking-[0.25em] uppercase transition-colors hover:text-blood ${
-                pathname === l.href ? "text-blood" : "text-navy/70"
+              className={`font-mono text-[9px] md:text-[10px] tracking-[0.3em] uppercase transition-opacity duration-500 hover:opacity-100 ${
+                pathname === l.href ? "opacity-90 text-bone" : "opacity-40 text-bone"
               }`}
             >
               {l.label}
             </Link>
           ))}
         </nav>
-
-        <button
-          onClick={() => setOpen(!open)}
-          className="md:hidden font-mono text-[11px] tracking-[0.25em] uppercase text-navy"
-          aria-label="Menu"
-        >
-          {open ? "Chiudi" : "Menu"}
-        </button>
       </div>
-
-      <AnimatePresence>
-        {open && (
-          <motion.nav
-            initial={{ opacity: 0, y: -12 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -12 }}
-            transition={{ duration: 0.25 }}
-            className="md:hidden flex flex-col gap-6 px-5 pb-8 pt-2 bg-paper border-b-2 border-navy/15"
-          >
-            {links.map((l) => (
-              <Link
-                key={l.href}
-                href={l.href}
-                onClick={() => setOpen(false)}
-                className={`font-circus text-2xl ${pathname === l.href ? "text-blood" : "text-navy"}`}
-              >
-                {l.label}
-              </Link>
-            ))}
-          </motion.nav>
-        )}
-      </AnimatePresence>
     </header>
   );
 }

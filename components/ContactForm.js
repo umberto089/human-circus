@@ -54,12 +54,12 @@ export default function ContactForm() {
         whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.98 }}
         type="submit"
-        className="font-mono text-[11px] tracking-[0.3em] uppercase bg-bone text-ink px-12 py-5 hover:bg-gold transition-colors duration-300"
+        className="font-mono text-[11px] tracking-[0.3em] uppercase border border-bone/30 text-bone px-12 py-5 hover:border-bone hover:bg-bone hover:text-ink transition-all duration-500"
       >
         Invia il messaggio
       </motion.button>
       {sent && (
-        <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-gold">
+        <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-bone/50">
           Si è aperto il tuo programma di posta — premi invia da lì. ✓
         </p>
       )}

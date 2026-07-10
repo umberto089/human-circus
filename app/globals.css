@@ -2,87 +2,63 @@
 @tailwind components;
 @tailwind utilities;
 
-:root { color-scheme: light; }
+:root { color-scheme: dark; }
 
-html { background: #f3ecdd; }
+html { background: #070606; }
 html.lenis, html.lenis body { height: auto; }
 .lenis.lenis-smooth { scroll-behavior: auto !important; }
 
 body {
-  background: #f3ecdd;
-  color: #20265c;
+  background: #070606;
+  color: #d6cfc0;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
 
-::selection { background: #c1272d; color: #f3ecdd; }
+::selection { background: #701c1f; color: #d6cfc0; }
 
-::-webkit-scrollbar { width: 5px; }
-::-webkit-scrollbar-track { background: #f3ecdd; }
-::-webkit-scrollbar-thumb { background: #c9bda2; }
-
-.text-outline {
-  -webkit-text-stroke: 1.5px rgba(32, 38, 92, 0.55);
-  color: transparent;
-}
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: #070606; }
+::-webkit-scrollbar-thumb { background: #2b2822; }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
 }
 
-/* ==== Il Circo ==== */
+/* ==== Teatro nel buio ==== */
 
-/* Tenda: righe rosse e crema con pieghe */
-.curtain-panel {
-  background:
-    repeating-linear-gradient(90deg, rgba(0, 0, 0, 0.18) 0 22px, rgba(255, 255, 255, 0.08) 22px 44px),
-    linear-gradient(180deg, rgba(60, 10, 12, 0) 0%, rgba(60, 10, 12, 0.35) 100%),
-    repeating-linear-gradient(90deg, #b3272d 0 44px, #f0e6d2 44px 88px);
+/* La lampada ondeggia appena */
+@keyframes swing {
+  0%, 100% { transform: rotate(2deg); }
+  50% { transform: rotate(-2deg); }
 }
+.swing { animation: swing 5.5s ease-in-out infinite; transform-origin: 50% -8%; will-change: transform; }
+.swing-slow { animation: swing 8s ease-in-out infinite; transform-origin: 50% -8%; }
 
-/* Lampadine da insegna: ben accese */
-.bulb {
-  position: absolute;
-  width: 13px;
-  height: 13px;
-  border-radius: 9999px;
-  background: radial-gradient(circle at 35% 35%, #fff3c8, #ffc23e 60%, #e79b18);
-  border: 1px solid rgba(140, 90, 10, 0.55);
-  box-shadow:
-    0 0 6px 2px rgba(255, 196, 62, 0.95),
-    0 0 22px 9px rgba(255, 170, 40, 0.5);
-  animation: bulb-blink 1.6s infinite;
+/* Il pubblico respira appena */
+@keyframes breath {
+  0%, 100% { transform: scaleY(1); }
+  50% { transform: scaleY(1.012); }
 }
-@keyframes bulb-blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.35; box-shadow: 0 0 3px 1px rgba(255, 196, 62, 0.4); }
-}
+.breath { animation: breath 4.6s ease-in-out infinite; transform-origin: 50% 100%; }
 
-/* Insegna che sfarfalla */
-@keyframes flicker {
-  0%, 100% { opacity: 1; }
-  91% { opacity: 1; }
-  92% { opacity: 0.35; }
-  93% { opacity: 1; }
-  95% { opacity: 0.55; }
-  96% { opacity: 1; }
-}
-.flicker { animation: flicker 4.5s infinite; }
-
-/* La pista: anello che ruota lentissimo */
-@keyframes spin-slow { to { transform: rotate(360deg); } }
-.ring-slow { animation: spin-slow 70s linear infinite; }
-
-/* Bandierine che ondeggiano */
-@keyframes sway {
-  0%, 100% { transform: rotate(0.8deg); }
-  50% { transform: rotate(-0.8deg); }
-}
-.sway { animation: sway 6s ease-in-out infinite; transform-origin: 50% 0%; }
-
-/* Stelle che brillano */
+/* Stelle deboli */
 @keyframes twinkle {
-  0%, 100% { opacity: 0.85; transform: scale(1); }
-  50% { opacity: 0.3; transform: scale(0.85); }
+  0%, 100% { opacity: 0.35; }
+  50% { opacity: 0.08; }
 }
-.star-tw { animation: twinkle 3.2s ease-in-out infinite; display: inline-block; }
+.star-dim { animation: twinkle 5s ease-in-out infinite; }
+
+/* Filo che invita a scendere */
+@keyframes drawline {
+  0% { transform: scaleY(0); transform-origin: top; }
+  45% { transform: scaleY(1); transform-origin: top; }
+  55% { transform: scaleY(1); transform-origin: bottom; }
+  100% { transform: scaleY(0); transform-origin: bottom; }
+}
+.drawline { animation: drawline 3.2s ease-in-out infinite; }
+
+/* Cono di luce della lampada */
+.lightcone {
+  background: radial-gradient(ellipse 42% 55% at 50% 0%, rgba(216, 188, 140, 0.13), rgba(216, 188, 140, 0.03) 55%, transparent 75%);
+}

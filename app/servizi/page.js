@@ -1,6 +1,5 @@
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
-import SectionHead from "@/components/SectionHead";
 
 export const metadata = {
   title: "Servizi",
@@ -11,49 +10,48 @@ const services = [
   {
     n: "01",
     title: "Ritratto d'autore",
-    desc: "Sessioni individuali fuori dallo studio: il tuo ambiente, la tua luce, la tua faccia vera. Per artisti, professionisti e chi non si riconosce nelle foto in posa.",
+    desc: "Sessioni individuali fuori dallo studio: il tuo ambiente, la tua luce, la tua faccia vera.",
   },
   {
     n: "02",
     title: "Reportage & eventi",
-    desc: "Matrimoni, feste, spettacoli dal vivo raccontati come storie, non come cataloghi. Occhio documentario, zero foto di rito.",
+    desc: "Matrimoni, feste, spettacoli dal vivo raccontati come storie, non come cataloghi.",
   },
   {
     n: "03",
     title: "Video & showreel",
-    desc: "Videoclip, backstage, contenuti brand con montaggio cinematografico. Dall'idea alla color grading finale.",
+    desc: "Videoclip, backstage, contenuti brand con montaggio cinematografico.",
   },
   {
     n: "04",
     title: "Progetti su misura",
-    desc: "Hai un'idea strana? Meglio. Progetti editoriali, mostre, campagne che hanno bisogno di uno sguardo fuori formato.",
+    desc: "Progetti editoriali, mostre, campagne che hanno bisogno di uno sguardo fuori formato.",
   },
 ];
 
 export default function Servizi() {
   return (
-    <section className="px-5 md:px-10 pt-36 md:pt-44 pb-20 max-w-6xl mx-auto">
-      <SectionHead kicker="Il palco è tuo" title="Servizi" />
-      <div className="divide-y-2 divide-navy/10 border-y-2 border-navy/10">
+    <section className="px-6 md:px-10 pt-[20vh] pb-[10vh] max-w-3xl mx-auto">
+      <p className="font-mono text-[10px] tracking-[0.45em] uppercase text-bone/30 mb-16">Servizi</p>
+      <div className="space-y-14">
         {services.map((s, i) => (
-          <Reveal key={s.n} delay={i * 0.08}>
-            <div className="group grid md:grid-cols-[80px_1fr_2fr] gap-4 md:gap-10 py-10 md:items-baseline">
-              <span className="font-circus text-lg text-blood">{s.n}</span>
-              <h3 className="font-circus text-2xl md:text-3xl text-bone group-hover:text-blood transition-colors duration-300">
+          <Reveal key={s.n} delay={i * 0.06}>
+            <div className="group border-b border-bone/10 pb-10">
+              <p className="font-mono text-[9px] tracking-[0.4em] text-bone/25 mb-3">{s.n}</p>
+              <h2 className="font-display text-3xl md:text-4xl text-bone/90 group-hover:text-bone transition-colors duration-700">
                 {s.title}
-              </h3>
-              <p className="text-smoke leading-relaxed">{s.desc}</p>
+              </h2>
+              <p className="text-smoke leading-loose mt-3 max-w-xl">{s.desc}</p>
             </div>
           </Reveal>
         ))}
       </div>
-      <Reveal className="mt-16 text-center">
-        <p className="text-smoke mb-8">Ogni progetto ha un prezzo suo. Parliamone.</p>
+      <Reveal className="mt-20">
         <Link
           href="/contatti"
-          className="inline-block font-circus text-sm uppercase bg-blood text-paper px-12 py-5 hover:bg-navy transition-colors duration-300"
+          className="font-mono text-[10px] tracking-[0.4em] uppercase text-bone/40 hover:text-bone transition-colors duration-700"
         >
-          Chiedi un preventivo ★
+          Parliamone →
         </Link>
       </Reveal>
     </section>
