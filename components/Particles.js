@@ -2,7 +2,7 @@
 import { useEffect, useRef } from "react";
 import * as THREE from "three";
 
-// Coriandoli da parata: puntini rossi, blu e oro che fluttuano piano.
+// Polvere di scena: particelle fluttuanti stile riflettori da circo
 export default function Particles() {
   const ref = useRef(null);
 
@@ -19,32 +19,24 @@ export default function Particles() {
     renderer.setSize(el.clientWidth, el.clientHeight);
     el.appendChild(renderer.domElement);
 
-    const count = 500;
+    const count = 900;
     const positions = new Float32Array(count * 3);
-    const colors = new Float32Array(count * 3);
     const speeds = new Float32Array(count);
-    const palette = [
-      [0.76, 0.15, 0.18], // rosso
-      [0.13, 0.15, 0.36], // blu navy
-      [0.72, 0.53, 0.18], // oro
-    ];
     for (let i = 0; i < count; i++) {
       positions[i * 3] = (Math.random() - 0.5) * 16;
       positions[i * 3 + 1] = (Math.random() - 0.5) * 10;
       positions[i * 3 + 2] = (Math.random() - 0.5) * 6;
-      const c = palette[i % 3];
-      colors[i * 3] = c[0]; colors[i * 3 + 1] = c[1]; colors[i * 3 + 2] = c[2];
       speeds[i] = 0.15 + Math.random() * 0.45;
     }
     const geo = new THREE.BufferGeometry();
     geo.setAttribute("position", new THREE.BufferAttribute(positions, 3));
-    geo.setAttribute("color", new THREE.BufferAttribute(colors, 3));
 
     const mat = new THREE.PointsMaterial({
-      vertexColors: true,
-      size: 0.055,
+      color: 0xc9a15c,
+      size: 0.035,
       transparent: true,
-      opacity: 0.75,
+      opacity: 0.55,
+      blending: THREE.AdditiveBlending,
       depthWrite: false,
     });
     const points = new THREE.Points(geo, mat);

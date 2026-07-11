@@ -16,7 +16,7 @@ export default function Reveal({ children, className = "", y = 60, delay = 0 }) 
       {
         opacity: 1,
         y: 0,
-        duration: 1.5,
+        duration: 1.1,
         delay,
         ease: "power3.out",
         scrollTrigger: { trigger: el, start: "top 85%", once: true },

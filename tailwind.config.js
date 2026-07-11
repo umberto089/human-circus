@@ -4,19 +4,19 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        ink: "#070606",    // buio di sala
-        bone: "#d6cfc0",   // avorio, luce di scena
-        smoke: "#7a7264",  // testo secondario
-        gold: "#9a7a33",   // ottone spento
-        blood: "#701c1f",  // velluto scuro
-        paper: "#d6cfc0",
-        navy: "#0d1024",
+        ink: "#0a0908",
+        bone: "#e8e2d6",
+        smoke: "#8a8378",
+        gold: "#c9a15c",
+        blood: "#a3282a",
+        paper: "#e8e2d6",
+        navy: "#0a0908",
       },
       fontFamily: {
         display: ["var(--font-display)", "serif"],
         sans: ["var(--font-sans)", "sans-serif"],
         mono: ["var(--font-mono)", "monospace"],
-        circus: ["var(--font-circus)", "serif"],
+        circus: ["var(--font-display)", "serif"],
       },
       letterSpacing: { widest2: "0.35em" },
     },

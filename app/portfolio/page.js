@@ -1,28 +1,17 @@
-import Exhibit from "@/components/Exhibit";
+import GalleryGrid from "@/components/GalleryGrid";
+import SectionHead from "@/components/SectionHead";
 import { galleryImages } from "@/lib/images";
 
 export const metadata = {
-  title: "Archivio",
-  description: "L'archivio di Human Circus. Fotografie che emergono dal buio, una alla volta.",
+  title: "Galleria",
+  description: "La galleria completa di Human Circus: street photography e ritratti dal circo quotidiano.",
 };
-
-const variants = ["dark", "spot", "sweep"];
-const layouts = ["center", "left", "right", "center", "right", "left"];
 
 export default function Portfolio() {
   return (
-    <div className="pt-[16vh]">
-      <p className="text-center font-mono text-[10px] tracking-[0.45em] uppercase text-bone/30">Archivio</p>
-      {galleryImages.map((img, i) => (
-        <Exhibit
-          key={img.id}
-          src={img.src}
-          alt={img.alt}
-          index={img.id}
-          variant={variants[i % 3]}
-          layout={layouts[i % 6]}
-        />
-      ))}
-    </div>
+    <section className="px-5 md:px-10 pt-36 md:pt-44 pb-20 max-w-7xl mx-auto">
+      <SectionHead kicker="Galleria completa" title="Tutti gli atti" />
+      <GalleryGrid images={galleryImages} />
+    </section>
   );
 }
